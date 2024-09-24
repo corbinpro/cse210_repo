@@ -9,6 +9,6 @@ class Program
         Console.WriteLine("What is the quote?");
         string quote = Console.ReadLine();
 
-        Console.WriteLine($"\"{quote}\" \n- {name}");   
+        Console.WriteLine($"\"{quote}\" \n- {name}" );   
     }
 }
