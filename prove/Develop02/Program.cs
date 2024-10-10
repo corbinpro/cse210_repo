@@ -1,10 +1,4 @@
 using System;
-
-class Program
-{
-    static void Main(string[] args)
-    {
-using System;
 using System.Collections.Generic;
 
 class Program
@@ -12,11 +6,11 @@ class Program
     static void Main(string[] args)
     {
         int choice = 0; // Initialize choice outside the loop
+        string journal_entry = ""; // Moved outside the loop so it's accessible across iterations
 
         while (choice != 5)
         {
             // Class greeting, menu selection
-            string journal_entry = "";
             Console.WriteLine("Choose one of the following:\n1. Write New Entry\n2. Display Journal\n3. Load Journal\n4. Save Journal\n5. Quit");
             choice = int.Parse(Console.ReadLine());
 
@@ -42,12 +36,12 @@ class Program
             {
                 // Load journal
                 Console.WriteLine("Move the load file into the same directory as the program.");
-                FileManagement.LoadJournal();
+                journal_entry = FileManagement.LoadJournal(); // Update journal_entry after loading
             }
             else if (choice == 4)
             {
                 // Save journal
-                FileManagement.SaveJournal();
+                FileManagement.SaveJournal(journal_entry); // Pass journal_entry to save method
             }
             else if (choice == 5)
             {
@@ -84,20 +78,18 @@ class Program
             int index = random.Next(0, prompts.Count);
             return prompts[index];
         }
-
-
     }
 
     public class FileManagement
     {
-        public void LoadJournal()
+        public static string LoadJournal()
         {
             Console.WriteLine("Enter the file name to load: ");
             string file_name = Console.ReadLine();
-            string journal_entry = System.IO.File.ReadAllText(file_name);
+            return System.IO.File.ReadAllText(file_name); // Return the loaded journal entry
         }
 
-        public void SaveJournal()
+        public static void SaveJournal(string journal_entry)
         {
             Console.WriteLine("Enter the file name to save: ");
             string file_name = Console.ReadLine();
@@ -106,5 +98,3 @@ class Program
     }
 }
 
-    }
-}
