@@ -46,7 +46,7 @@ public class Animation
 
                 Console.Clear();
                 Console.WriteLine(frame);
-                Thread.Sleep(150);
+                Thread.Sleep(1000);
             }
         }
     }

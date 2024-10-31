@@ -20,11 +20,25 @@ public class Activity
         "Consider writing down this list next time and putting it somewhere you can see it."
     };
 
+    private string startMessage = "";
+    private string endMessage = "";
     public Activity(int choice, int duration)
     {
-        string startMessage = _startMessages[choice];
+        startMessage = _startMessages[choice];
         _duration = duration;
-        string endMessage = _endMessages[choice];
+        endMessage = _endMessages[choice];
+    }
+
+    public void _start()
+    {
+        Console.WriteLine(startMessage);
+        Thread.Sleep(6000);
+    }
+
+    public void _end()
+    {
+        Console.WriteLine(endMessage);
+        Thread.Sleep(2000);
     }
 
 
