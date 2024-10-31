@@ -21,17 +21,17 @@ public class Listing : Activity
 
     public Listing(int choice, int duration) : base(choice, duration)
     {
-        durationMathified = (int)Math.Ceiling((double)duration / 12);
+        durationMathified = (int)Math.Ceiling((double)duration / 1);
     }
 
     public void _listingExcercise()
     {
-        Console.WriteLine("Let's Begin");
-        for (int i = 0; i < durationMathified; i++)    
-            Console.WriteLine(prompts[random.Next(prompts.Count)]);
-            Thread.Sleep(6000);
-            Animation animation = new Animation(6);
-            animation._start();
+        Console.Clear();
+        Console.WriteLine("Let's Begin\n");
+        Console.WriteLine(prompts[random.Next(prompts.Count)]);
+        Thread.Sleep(4000);
+        Animation animation = new Animation(durationMathified);
+        animation._start();
     
     }
 }

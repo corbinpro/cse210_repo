@@ -17,20 +17,18 @@ public class Animation
     };
 
     private List<string> frames = new List<string>();
-
+    public Animation(int seconds)
+    {
+        _seconds = seconds;
+        Console.Clear();
+        _read();
+    }
     private void _read()
     {
         foreach (string filePath in filepaths)
         {
             frames.Add(File.ReadAllText(filePath));
         }
-    }
-
-    public Animation(int seconds)
-    {
-        _seconds = seconds;
-        Console.Clear();
-        _read();
     }
 
     public void _start()

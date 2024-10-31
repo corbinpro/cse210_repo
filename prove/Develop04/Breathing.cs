@@ -8,7 +8,7 @@ public class Breathing : Activity
     private float durationMathified = 0;
     public Breathing(int choice, int duration) : base(choice, duration)
     {
-        durationMathified = duration / 12;
+        durationMathified = duration / 10;
         durationMathified = (int)Math.Ceiling(durationMathified);
     }
 
@@ -16,19 +16,19 @@ public class Breathing : Activity
     {
         Console.WriteLine("Lets Begin");
         
-        Thread.Sleep(2000);
+        Thread.Sleep(1000);
 
-        for (int i = 0; i < durationMathified; i++)    
+        for (int i = 0; i < durationMathified; i++)
+        {   
             Console.WriteLine(inhale);
             Thread.Sleep(1000);
-            Animation animation = new Animation(6);
+            Animation animation = new Animation(4);
             animation._start();
-            Thread.Sleep(1000);
 
             Console.WriteLine(exhale);
             Thread.Sleep(1000);
             animation = new Animation(6);
-            animation._start();     
-            Thread.Sleep(1000);
+            animation._start(); 
+        }    
     }
 }

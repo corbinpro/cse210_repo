@@ -7,22 +7,29 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.Clear();
         int choice = 0;
+        int duration = 0;
 
         while (choice != 4) 
         {
+            Console.Clear();
             Console.WriteLine("Please choose one of the following:\n1.Breathing Excercise\n2.Reflection Excercise,\n3.Listing Excercise\n4.Quit");
             choice = Convert.ToInt32(Console.ReadLine() );
 
-            Console.WriteLine("How long would you like to do this activity for? (in seconds, minumum 12 seconds)");
-            int duration = Convert.ToInt32(Console.ReadLine());
-            if (duration <12)
+            if (choice != 4)
             {
-                duration = 12;
+                Console.WriteLine("How long would you like to do this activity for? (in seconds)");
+                duration = Convert.ToInt32(Console.ReadLine());
             }
+
 
             if (choice == 1)
             {
+                if (duration <10)
+                {
+                    duration = 10;
+                }
                 Breathing breathing = new Breathing(choice -1, duration);
                 breathing._start();
                 breathing._breathingExcercise();
