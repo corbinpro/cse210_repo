@@ -4,28 +4,15 @@ using System.Runtime.CompilerServices;
 
 public abstract class Goal
 {
-    public string _type;
-    private string _name;
-    private string _description;
-    private string _points;
-    private Boolean _isCompleted;
-    public string loadFilePath = "save_file.txt";
-
-    public Goal(string name, string description, string points)
-    {
-        _name = name;
-        _description = description;
-        _points = points;
-        _isCompleted = false;
-    }
+    protected string _type;
+    protected string _name;
+    protected string _description;
+    protected string _points;
+    protected Boolean _isCompleted;
+    protected string loadFilePath = "save_file.txt";
 
     public Goal()
     {
-        string[] lines = File.ReadAllLines(loadFilePath);
-            _name = lines[0];
-            _description = lines[1];
-            _points = lines[2];
-            _isCompleted = Convert.ToBoolean(lines[3]);
     }
     public void _setName()
     {
@@ -47,36 +34,57 @@ public abstract class Goal
     {
         return _description;
     }
-    public void _setPoints()
+    public virtual void _setPoints()
     {
         Console.WriteLine("Enter the number of points this goal is worth: ");
         _points = Console.ReadLine();
     }
-    public string _getPoints()
+    public virtual string _getPoints()
     {
         return _points;
     }
-    public string _getStatus()
+    public virtual string _getStatus()
     {
         if (_isCompleted)
         {
-            return "[ ]";
+            return "[X]";
         }
         else
         {
-            return "[X]";
+            return "[ ]";
         }
     }
-        public void _Complete()
+    public virtual void _Complete()
     {
         _isCompleted = true;
     }
 
-    public string _getList()
+    public string _getType()
+    {
+        return _type;
+    }
+
+    public virtual string _getList()
     {
         return _type + "," + _name + "," + _description + "," + _points + "," + _isCompleted + "," + "\n";
     }
+    public void _loadName(string name)
+    {
+        _name = name;
+    }
 
+    public void _loadDescription(string description)
+    {
+        _description = description;
+    }
+    public void _loadPoints(string points)
+    {
+        _points = points;
+    }
+    public void _loadisCompleted(Boolean isCompleted)
+    {
+        _isCompleted = isCompleted;
+    }
 
 
 }

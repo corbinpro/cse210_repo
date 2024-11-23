@@ -8,5 +8,4 @@ public class SimpGoal : Goal
     {
         _type = "Simple";
     }
-
 }
