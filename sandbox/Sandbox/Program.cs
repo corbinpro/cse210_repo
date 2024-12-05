@@ -1,137 +1,59 @@
-using System;
-using System.Reflection.Metadata;
+﻿using System;
+using System.Globalization;
+using System.IO;
+using System.Net;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
+using System.Xml.Serialization;
 
 class Program
 {
-    static void Main(string[] args)
+    static void main
     {
-        
-    }
+        public string program = '';
+        Console.Writeline('Program number:');
+        program = Console.Readline();
+        public int choice = 0
+        Console.WriteLine("Please select an option: \n 1. Split up rapids \n 2. Add tapping cycle \n 3. Multi offset tools \n 4. Part catcher \n 0. Exit");
+        choice = Convert.ToInt32(Console.ReadLine());
 
-    public abstract class Home
-    {
-        private new List <Room> _rooms;
-
-        public void AddRooom(Room room)
+        while choice != 0
         {
-            _rooms.Add(room);
+        //if 1
+        if (choice == 1)
+        {
+            
+
         }
-
-    }
-
-    public class Room //object for roooms list in house
-    {
-        private string _name;
-        private List <string> devices;
-
-        public void SetRoom(string name)
+        else if (choice == 2)
         {
-            _name = name;
+            //add tapping cycle
+            //prompt user for tapping cycle parameters
+
         }
-
-        public void AddDevice(string device)
+        else if (choice == 3)
         {
-            devices.Add(device);
+            //multi offset tools
+            //prompt user for number of tools
+
         }
-
-        public void TurnOffAllLights()
+        else if (choice == 4)
         {
+            //part catcher
+            //prompt user for part catcher parameters
+
         }
-
-        public void TurnOffDevice()
+        else if (choice == 0)
         {
+            //exit
+            Console.WriteLine("Goodbye!");
         }
-
-        public void TurnOffAllDevices()
+        else
         {
+            Console.WriteLine("Invalid choice. Please choose a number between 1 and 4.");
         }
-
-        public void ReportDeviceStatus()
-        {
-        }
-
-        public void ReportOnlyOnDevices()
-        {
-        }
-
-        public void ReportLongestOnDevices()
-        {
         }
     }
 
-
-    public abstract class SmartDevice
-    {
-        private string _name;
-        private string _runningState;
-        private string _runTime;
-
-        public void SetSmartDevice(string name, string runningState, string runTime)
-        {
-            _name = name;
-            _runningState = runningState;
-            _runTime = runTime;
-        }
-
-        public string GetName()
-        {
-            return _name;
-        }
-
-        public abstract void PowerOn();
-
-
-        public abstract void PowerOff();
-
-        public string GetRunningState()
-        {
-            return _runningState;
-        }
-
-        public string GetRunTime()
-        {
-            return _runTime;
-        }
-    }
-
-    public class SmartLight : SmartDevice
-    {
-        public override void PowerOn()
-        {
-            Console.WriteLine("SmartLight is on");
-        }
-
-        public override void PowerOff()
-        {
-            Console.WriteLine("SmartLight is off");
-        }
-    }
-
-    public class SmartSpeaker : SmartDevice
-    {
-        public override void PowerOn()
-        {
-            Console.WriteLine("SmartSpeaker is on");
-        }
-
-        public override void PowerOff()
-        {
-            Console.WriteLine("SmartSpeaker is off");
-        }
-    }
-
-    public class SmartTv : SmartDevice
-    {
-        public override void PowerOn()
-        {
-            Console.WriteLine("SmartTv is on");
-        }
-
-        public override void PowerOff()
-        {
-            Console.WriteLine("SmartTv is off");
-        }
-
-    }
-    
 }

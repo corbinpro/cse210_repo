@@ -2,6 +2,18 @@
 {
     "version": "0.2.0",
     "configurations": [
+        {
+            "name": "lathe_translator",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-lathe_translator",
+            "program": "${workspaceFolder}/final/FinalProject/bin/Debug/net8.0/FinalProject.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/final/FinalProject",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
 
         {
             "name": "Sandbox Project",
@@ -249,6 +261,8 @@
             "internalConsoleOptions": "neverOpen",
             "stopAtEntry": false
         },
+
+
 
     ]
 }
